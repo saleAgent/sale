@@ -12,13 +12,14 @@
 </style>
 </head>
 <body><div class="layout">
-<aside class="side"><div class="logo">SalesAgent</div><nav class="nav">
+<aside class="side"><div>SalesAgent</div><nav class="nav">
 <a class="active" href="./index.html" data-icon="＋">＋ <span>New promotion</span></a>
 <a href="./dashboard.html" data-icon="▦">▦ <span>My dashboard</span></a>
-<a href="./admin.html" data-icon="⚙">⚙ <span>Admin</span></a>
 </nav><div class="recent-title">RECENT PROMOTIONS</div><div class="recent" id="recentList">Connecting…</div></aside>
-<main class="main"><div class="top"><div><div class="eyebrow">Your growth workspace</div><h1>Launch your next promotion.</h1><div class="id">Browser ID · <strong id="browserIdLabel">Loading…</strong></div></div><div class="top-actions"><a class="top-link" href="./dashboard.html">View dashboard ↗</a></div></div>
-<div class="content"><div class="intro"><div><h2>Create a promotion</h2><p>Set up your product details and choose where to reach customers.</p></div></div>
+<main class="main">
+  <div class="intro"><div><h2>Create a promotion</h2></div></div>
+  <div class="top"><div><div class="id">Browser ID · <strong id="browserIdLabel">Loading…</strong></div></div><div class="top-actions"><a class="top-link" href="./dashboard.html">View dashboard ↗</a></div></div>
+<div class="content">
 <section class="panel"><form id="productForm"><div class="form-grid"><div><h3 class="section-title">01 · Product details</h3><div class="fields">
 <div class="field full"><label class="lbl" for="productName">Product name</label><input id="productName" maxlength="100" required placeholder="e.g. Handmade leather wallet"></div>
 <div class="field full"><label class="lbl" for="description">Short description</label><textarea id="description" maxlength="2000" required placeholder="What makes your product worth discovering?"></textarea></div>
