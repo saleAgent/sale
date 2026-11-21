@@ -1,0 +1,53 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /products/{productId} {
+      function signedIn() {
+        return request.auth != null;
+      }
+      function isAdmin() {
+        return signedIn()
+          && request.auth.token.email == "salesagentic.info@gmail.com";
+      }
+      // Browser ID is the product's logical owner identifier.
+      // ownerUid is only the Firebase security boundary for this browser session.
+      function isOwner() {
+        return signedIn()
+          && resource.data.ownerUid == request.auth.uid;
+      }
+      allow create: if signedIn()
+        && request.resource.data.ownerUid == request.auth.uid
+        && request.resource.data.browserId is string
+        && request.resource.data.browserId.size() >= 20
+        && request.resource.data.browserId.size() <= 100
+        && request.resource.data.productName is string
+        && request.resource.data.productName.size() > 0
+        && request.resource.data.productName.size() <= 100
+        && request.resource.data.mobile is string
+        && request.resource.data.mobile.matches('^[0-9]{10}$')
+        && request.resource.data.plan in [299, 399, 499, 599, 699, 799, 899, 999]
+        && request.resource.data.approvalStatus == "Pending"
+        && request.resource.data.paymentStatus == "Pending";
+      // Query from the client must include ownerUid == request.auth.uid.
+      // The dashboard additionally filters by Browser ID + mobile.
+      allow read: if isOwner() || isAdmin();
+      allow update: if (
+        isOwner()
+        && request.resource.data.ownerUid == resource.data.ownerUid
+        && request.resource.data.browserId == resource.data.browserId
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+          "productName", "description", "mobile", "location", "plan", "radius",
+          "latitude", "longitude", "minVisitors", "maxVisitors", "minLeads",
+          "maxLeads", "productPhoto", "updatedAt"
+        ])
+      ) || (
+        isAdmin()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+          "approvalStatus", "statusUpdatedAt", "statusUpdatedBy",
+          "paymentStatus", "paymentVerifiedAt", "paymentVerifiedBy"
+        ])
+      );
+      allow delete: if isOwner() || isAdmin();
+    }
+  }
+}
