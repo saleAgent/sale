@@ -15,7 +15,7 @@
 import{initializeApp}from"https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
 import{getFirestore,collection,getDocs,query,where,doc,deleteDoc}from"https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 import{getAuth,onAuthStateChanged,signInAnonymously,setPersistence,browserLocalPersistence}from"https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
-const cfg={apiKey:"AIzaSyAzJoZn0twxiIvLT1dWgo0k0PepV4WoUA",authDomain:"salesagent-2c22f.firebaseapp.com",projectId:"salesagent-2c22f",storageBucket:"salesagent-2c22f.firebasestorage.app",messagingSenderId:"614955740633",appId:"1:614955740633:web:8478a4a242984d79adfdc8",measurementId:"G-3VE4DV0KG0"};
+const cfg={ apiKey: "AIzaSyAzJoZn0twxiIvLTd1yWgo0k0PepV4WoUA",authDomain:"salesagent-2c22f.firebaseapp.com",projectId:"salesagent-2c22f",storageBucket:"salesagent-2c22f.firebasestorage.app",messagingSenderId:"614955740633",appId:"1:614955740633:web:8478a4a242984d79adfdc8",measurementId:"G-3VE4DV0KG0"};
 const app=initializeApp(cfg),db=getFirestore(app),auth=getAuth(app),$=id=>document.getElementById(id);
 function getBrowserId(){let id=localStorage.getItem("salesagent_browser_id");if(!id){id=crypto.randomUUID();localStorage.setItem("salesagent_browser_id",id)}return id}
 const currentBrowserId=getBrowserId();$("browserId").value=currentBrowserId;let user=null;
