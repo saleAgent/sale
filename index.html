@@ -37,7 +37,7 @@ import {initializeApp} from "https://www.gstatic.com/firebasejs/10.14.1/firebase
 import {getFirestore,collection,addDoc,getDocs,query,where,doc,updateDoc,deleteDoc,serverTimestamp} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 import {getAuth,onAuthStateChanged,signInAnonymously,setPersistence,browserLocalPersistence} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
 
-const firebaseConfig={apiKey:"AIzaSyAzJoZn0twxiIvLT1dWgo0k0PepF4WoUA",authDomain:"salesagent-2c22f.firebaseapp.com",projectId:"salesagent-2c22f",storageBucket:"salesagent-2c22f.firebasestorage.app",messagingSenderId:"614955740633",appId:"1:614955740633:web:8478a4a242984d79adfdc8",measurementId:"G-3VE4DV0KG0"};
+const firebaseConfig={ apiKey: "AIzaSyAzJoZn0twxiIvLTd1yWgo0k0PepV4WoUA",authDomain:"salesagent-2c22f.firebaseapp.com",projectId:"salesagent-2c22f",storageBucket:"salesagent-2c22f.firebasestorage.app",messagingSenderId:"614955740633",appId:"1:614955740633:web:8478a4a242984d79adfdc8",measurementId:"G-3VE4DV0KG0"};
 const CLOUDINARY_CLOUD_NAME="y6kr5fnv",CLOUDINARY_UPLOAD_PRESET="saleagent";
 const app=initializeApp(firebaseConfig),db=getFirestore(app),auth=getAuth(app);
 const $=id=>document.getElementById(id);
