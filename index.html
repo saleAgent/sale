@@ -7,6 +7,54 @@
 <style>
 :root{color-scheme:light;--bg:#f5f7fb;--surface:#fff;--surface2:#f8faff;--line:#e4e9f2;--text:#172033;--muted:#6b768b;--accent:#4568e8;--accent2:#13a58b;--danger:#d94b62;--shadow:0 8px 28px rgba(22,38,72,.07)}
 *{box-sizing:border-box}html{background:var(--bg)}body{margin:0;background:var(--bg);color:var(--text);font:13px Inter,ui-sans-serif,system-ui,Segoe UI,Arial,sans-serif}button,input,textarea,select{font:inherit}button{cursor:pointer}.layout{display:flex;min-height:100vh}.side{width:204px;flex-shrink:0;background:#fff;border-right:1px solid var(--line);padding:17px 12px;display:flex;flex-direction:column}.logo{font-size:18px;font-weight:850;letter-spacing:-.6px;padding:5px 10px 24px;color:#172033}.logo:before{content:'✦';display:inline-grid;place-items:center;width:28px;height:28px;margin-right:8px;border-radius:9px;background:linear-gradient(135deg,#4568e8,#7b8df5);color:white}.nav a{display:flex;align-items:center;gap:10px;color:#637087;text-decoration:none;padding:10px 11px;border-radius:9px;margin:3px 0;font-weight:650;transition:.18s}.nav a.active,.nav a:hover{background:#edf1ff;color:#3657d5}.recent-title{margin:24px 10px 8px;color:#98a2b3;font-size:9px;font-weight:800;letter-spacing:1.2px}.recent button{width:100%;border:0;background:transparent;text-align:left;padding:8px 10px;border-radius:8px;color:#68758b;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px}.recent button:hover{background:#f1f4fa;color:#263b76}.main{flex:1;min-width:0;padding:22px clamp(14px,2.5vw,34px) 36px}.top{max-width:1120px;margin:0 auto 17px;display:flex;justify-content:space-between;align-items:center;gap:12px}.eyebrow{font-size:9px;letter-spacing:1.4px;text-transform:uppercase;color:#168d7b;font-weight:800;margin-bottom:6px}.top h1{font-size:clamp(21px,2.4vw,28px);letter-spacing:-.8px;margin:0}.id{font-size:10px;color:var(--muted);margin-top:6px}.id strong{color:#44516a;font-weight:650;overflow-wrap:anywhere}.top-actions{display:flex;gap:8px;flex-wrap:wrap}.top-link{color:#4259bb;text-decoration:none;border:1px solid #dce3f3;border-radius:8px;padding:8px 11px;background:#fff;font-weight:650}.top-link:hover{border-color:#9eaff1;background:#f8f9ff}.content{max-width:1120px;margin:auto}.intro{display:flex;justify-content:space-between;align-items:end;gap:16px;margin:0 0 12px}.intro h2{font-size:16px;margin:0 0 3px}.intro p{margin:0;color:var(--muted);font-size:11px}
+    /* Label aur input ek hi line mein */
+.field {
+    min-width: 0;
+    display: grid;
+    grid-template-columns: 130px minmax(0, 1fr);
+    align-items: center;
+    gap: 12px;
+}
+
+/* Field name */
+.lbl {
+    display: block;
+    font-size: 12px;
+    color: #26334a;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Input border clearly visible */
+.field input,
+.field textarea,
+.field select {
+    width: 100%;
+    min-width: 0;
+    border: 1px solid #8994a8;
+    border-radius: 6px;
+    padding: 10px;
+    background: #fff;
+    color: #172033;
+    min-height: 40px;
+    outline: none;
+}
+
+/* Focus effect */
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+    border: 1px solid #4568e8;
+    box-shadow: 0 0 0 2px #4568e820;
+}
+
+/* Mobile layout */
+@media(max-width:650px) {
+    .field {
+        grid-template-columns: 105px minmax(0, 1fr);
+        gap: 8px;
+    }
+}
 .panel{background:#fff;border:1px solid var(--line);border-radius:13px;padding:18px;box-shadow:var(--shadow);width:70%;margin-left:15px;}
 
 
